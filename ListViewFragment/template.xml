@@ -1,0 +1,23 @@
+<template format="4"
+		revision="1"
+		name="List Fragment"
+		description="Fragment with recycler view, adapter, searchbar...etc sample.">
+
+	<category value="Template"/>
+
+	<parameter id="className"
+		name="Class name"
+		type="string"
+		constraints="class|unique|nonempty"
+		default="List"/>
+
+	<parameter id="listData"
+		name="List data type"
+		type="string"
+		constraints="unique|nonempty"
+		default="ArrayList&lt;Object&gt;"/>	
+
+	<globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
