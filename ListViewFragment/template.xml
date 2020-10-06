@@ -15,7 +15,7 @@
 		name="List data type"
 		type="string"
 		constraints="unique|nonempty"
-		default="ArrayList&lt;Object&gt;"/>	
+		default="ArrayList&lt;ListItem&gt;"/>	
 
 	<globals file="globals.xml.ftl" />
     <execute file="recipe.xml.ftl" />

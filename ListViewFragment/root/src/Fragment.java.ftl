@@ -1,8 +1,24 @@
 package ${packageName};
 
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-public class ${className}Fragment extends Fragment {
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnTextChanged;
+
+public class ListFragment extends Fragment {
     @BindView(R.id.title)
     TextView mTitle;
     @BindView(R.id.refresh)
@@ -10,15 +26,15 @@ public class ${className}Fragment extends Fragment {
     @BindView(R.id.list)
     RecyclerView mList;
 
-    ${className}ViewModel mViewModel;
-    ${className}Adapter mAdapter;
+    ListViewModel mViewModel;
+    ListAdapter mAdapter;
 
-    public ${className}Fragment() {
+    public ListFragment() {
 
     }
 
-    public static ${className}Fragment newInstance() {
-        return new ${className}Fragment();
+    public static ListFragment newInstance() {
+        return new ListFragment();
     }
 
     @Override
@@ -28,23 +44,23 @@ public class ${className}Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.${className}_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.list_fragment, container, false);
         ButterKnife.bind(this, rootView);
-        mTitle.setText("${className}");
-        mViewModel = ViewModelProviders.of(this).get(${className}ViewModel.class);
-        mRefreshLayout.setOnRefreshListener(() -> mViewModel.get${className}());
+        mTitle.setText("List");
+        mViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
+        mRefreshLayout.setOnRefreshListener(() -> mViewModel.getList(getContext()));
 
-        mAdapter = new ${className}Adapter();
+        mAdapter = new ListAdapter();
         mList.setLayoutManager(new LinearLayoutManager(getContext()));
         mList.setAdapter(mAdapter);
-        mViewModel.get${className}();
-        mViewModel.get${className}Data().observe(this, this::observe${className});
+        mViewModel.getList(getContext());
+        mViewModel.getListData().observe(getViewLifecycleOwner(), this::observeList);
 
         return rootView;
     }
 
-    private void observe${className}(${listData} response) {
-        mAdapter.set${className}(response);
+    private void observeList(ArrayList<ListItem> response) {
+        mAdapter.setList(response);
     }
 
     @OnTextChanged(value = R.id.search, callback = OnTextChanged.Callback.TEXT_CHANGED)
@@ -52,4 +68,7 @@ public class ${className}Fragment extends Fragment {
 
     }
 }
+
+
+
 

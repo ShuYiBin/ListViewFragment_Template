@@ -10,24 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="21dp"
         android:layout_marginRight="18dp"
+        android:layout_centerVertical="true"
         android:gravity="center"
         android:text="Status"
         android:textColor="#fd5328"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/status"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="1dp"
-        android:layout_marginRight="18dp"
-        android:gravity="center"
-        android:text="Note"
-        android:textColor="#545454"
         android:textSize="14sp" />
 
     <TextView

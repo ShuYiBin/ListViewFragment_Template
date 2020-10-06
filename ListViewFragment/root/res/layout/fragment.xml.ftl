@@ -7,23 +7,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/colorPrimaryDark">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:text="Title"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
-        </RelativeLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,18 +31,36 @@
                 android:layout_alignParentBottom="true"
                 android:background="#4c979797" />
 
-            <android.support.v4.widget.SwipeRefreshLayout
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <android.support.v7.widget.RecyclerView
+
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                </android.support.v7.widget.RecyclerView>
-            </android.support.v4.widget.SwipeRefreshLayout>
+                </androidx.recyclerview.widget.RecyclerView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:text="Title"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
 
     </LinearLayout>
 </RelativeLayout>
